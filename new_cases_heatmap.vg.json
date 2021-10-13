@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "clean_data/clean_new_cases_jun_sept.csv"},
+    "width": 400,
+    "height": 700,
+    "background":"beige",
+    "title": "Total Number of New Cases per day from June 1 to September 30",
+    "transform": [
+        {"calculate": "datetime(datum.date)", "as": "convertedDate"},
+        {
+          "calculate": "utcFormat(datum.date,'%b %d, %Y')",
+          "as": "converted as string"
+        }
+      ],
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "date",
+        "timeUnit": "month",
+        "type": "ordinal",
+        "title": "Month"
+      },
+      "y": {
+        "field": "date",
+        "timeUnit": "date",
+        "type": "ordinal",
+        "title": "Day",
+        "axis": {"labelAngle": 0, "format": "%e", "labelFontSize": 12}
+      },
+      "color": {
+        "field": "cases_new",
+        "aggregate": "max",
+        "type": "quantitative",
+        "legend": {"title": "Number of New Cases"},
+        "scale": {"range": ["#ffeda0", "#feb24c", "#f03b20"]}
+      },
+      "tooltip": [
+        {"field": "converted as string", "type": "ordinal", "title":"Date"},
+        {"field": "cases_new", "title": "New Cases"}
+      ]
+    },
+    "config": {
+        "axis": {"grid": true, "tickBand": "extent"},
+        "legend": {"orient":"bottom"}
+      }
+}

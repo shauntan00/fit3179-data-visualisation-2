@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "clean_data/clean_testing_jun_sept.csv"},
+    "width": 400,
+    "height": 700,
+    "background":"beige",
+    "title": "Total Number of Test per day from June 1 to September 30",
+    "params": [
+        {
+          "name": "Type_Selection",
+          "bind": {
+            "input": "select",
+            "options": [
+                "all",
+                "pcr",
+                "rtk.ag"
+             
+            ],
+            "labels": [
+                "All", 
+                "PCR",
+                "RTK"
+            ],
+            "name": "Choose type of Test: "
+          },
+          "value": "all"
+        }
+      ],
+    "transform": [
+        {"calculate": "datetime(datum.date)", "as": "convertedDate"},
+        {
+          "calculate": "utcFormat(datum.date,'%b %d, %Y')",
+          "as": "converted as string"
+        },
+        {"filter":"datum.variable == Type_Selection"}
+      ],
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "date",
+        "timeUnit": "month",
+        "type": "ordinal",
+        "title": "Month"
+      },
+      "y": {
+        "field": "date",
+        "timeUnit": "date",
+        "type": "ordinal",
+        "title": "Day",
+        "axis": {"labelAngle": 0, "format": "%e", "labelFontSize": 12}
+      },
+      "color": {
+        "field": "value",
+        "aggregate": "max",
+        "type": "quantitative",
+        "legend": {"title": "Number of Test"},
+        "scale": {"range": ["#fde0dd", "#fa9fb5", "#c51b8a"]}
+      },
+      "tooltip": [
+        {"field": "converted as string", "type": "ordinal", "title":"Date"},
+        {"field": "value", "title": "Total Number"}
+      ]
+    },
+    "config": {
+        "axis": {"grid": true, "tickBand": "extent"},
+        "legend": {"orient": "bottom"}
+      }
+}

@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "clean_data/clean_vac_type_state.csv"},
+    "width": 700,
+    "height": 400,
+    "mark": "bar",
+    "background":"beige",
+    "title": {
+        "text": "Vaccine Brands by State as of 30 September 2021",
+        "fontSize":20},
+    "encoding": {
+      "x": {"aggregate": "sum", "field": "Total"},
+      "y": {"field": "State", "sort":"-x"},
+      "color": {"field": "Types", "sort":"-x"},
+      "tooltip":[
+          {"field":"Types", "type": "nominal", "title": "Brand of Vaccine"},
+          {"field":"Total", "type": "quantitative"}
+        ]
+    },
+    "config": {
+        "axis": {"grid": false,"labelFontSize":15, "titleFontSize":12},
+        "legend": {"orient": "bottom"},
+        "view": {"strokeOpacity": 0, "stroke": "black"}
+ 
+      }
+  }

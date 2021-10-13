@@ -1,0 +1,154 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 500,
+  "height": 200,
+  "padding": 5,
+
+"signals": [
+    {
+      "name": "startAngle", "value": -2.5,
+      "bind": {"input": "range", "min": -2.5, "max": 6.29, "step": 0.01}
+    },
+    {
+      "name": "endAngle", "value": 2.5,
+      "bind": {"input": "range", "min": -6.29, "max": 6.29, "step": 0.01}
+    },
+    {
+      "name": "padAngle", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 0.1}
+    },
+    {
+      "name": "bandPadding", "value": 0.15,
+      "bind": {"input": "range", "min": 0, "max": 1}
+    },
+    {
+      "name": "innerRadius", "value": 60,
+      "bind": {"input": "range", "min": 0, "max": 90, "step": 1}
+    },
+    {
+      "name": "cornerRadius", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 10, "step": 0.5}
+    }
+  ],
+
+  "data": [{
+    "name": "table",
+    "values": [{
+			"wifi": 12,
+			"nonWifi": 5,
+			"free": 83,
+			"ch": 1
+		}, {
+			"wifi": 7,
+			"nonWifi": 14,
+			"free": 79,
+			"ch": 2
+		}, {
+			"wifi": 2,
+			"nonWifi": 2,
+			"free": 96,
+			"ch": 3
+		}, {
+			"wifi": 2,
+			"nonWifi": 1,
+			"free": 97,
+			"ch": 4
+		}, {
+			"wifi": 1,
+			"nonWifi": 1,
+			"free": 98,
+			"ch": 5
+		}, {
+			"wifi": 22,
+			"nonWifi": 0,
+			"free": 78,
+			"ch": 6
+		}, {
+			"wifi": 21,
+			"nonWifi": 0,
+			"free": 79,
+			"ch": 7
+		}, {
+			"wifi": 3,
+			"nonWifi": 2,
+			"free": 95,
+			"ch": 8
+		}, {
+			"wifi": 0,
+			"nonWifi": 1,
+			"free": 99,
+			"ch": 9
+		}, {
+			"wifi": 12,
+			"nonWifi": 3,
+			"free": 85,
+			"ch": 10
+		}, {
+			"wifi": 12,
+			"nonWifi": 0,
+			"free": 88,
+			"ch": 11
+		}, {
+			"wifi": 1,
+			"nonWifi": 3,
+			"free": 96,
+			"ch": 12
+		}],
+    "transform": [{
+		"type": "fold",
+		"fields": ["wifi","nonWifi","free"]
+	}, {
+		"type": "formula",
+		"as": "c",
+		"initonly": true,
+		"expr": "if(datum.key==='wifi','green',if(datum.key==='free','#ccc','red'))"
+	}, {
+          "type": "stack",
+          "groupby": ["ch"],
+          "field": "value",
+		  "as": ["r0","r1"]
+        }
+      ]
+  }],
+
+   "scales": [
+    {
+      "name": "chbands",
+      "type": "band",
+	  "paddingInner": { "signal": "bandPadding" },
+      "range": [{ "signal": "innerRadius" }, { "signal": "width / 2 - 10" }],
+      "domain": {"data": "table", "field": "ch"}
+    },
+    {
+      "name": "angle",
+      "type": "linear",
+      "range": [{ "signal": "startAngle"}, { "signal": "endAngle"}],
+      "nice": true, "zero": true,
+      "domain": {"data": "table", "field": "r1"}
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "arc",
+      "from": {"data": "table"},
+      "encode": {
+		"enter": {
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2"}
+        },
+        "update": {
+          "fill": {"field": "c"},
+          "startAngle": { "scale": "angle", "field": "r0"},
+          "endAngle": { "scale": "angle", "field": "r1"},
+          "padAngle": {"signal": "padAngle"},
+          "innerRadius": { "scale": "chbands", "field": "ch" },
+          "outerRadius": { "scale": "chbands", "field": "ch", "offset": { "scale": "chbands", "band": 1 } },
+          "cornerRadius": {"signal": "cornerRadius"},
+		  "tooltip": { "signal": "'Ch'+datum.ch+'  '+datum.key+'  '+datum.value+'%'" }
+        }
+      }
+    }
+  ]
+}
+
