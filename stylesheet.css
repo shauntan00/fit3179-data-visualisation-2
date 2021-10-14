@@ -3,7 +3,7 @@
 }
 
 body{
-	background-color:beige;
+	background-color:#cccccc;
 }
 h1{
 	text-align: center;
@@ -11,20 +11,15 @@ h1{
 }
 .page {
     width: 1500px;
-    background-color:beige;
+    background-color:#cccccc;
     margin: auto;
-    padding: 50px;
-    padding-top: 35px;
+    padding: 10px;
+    padding-top: 10px;
 }
 #small_font{
 	font-size: 14px;
 	color: grey;
 	margin-bottom: 50px;
-}
-
-#line_chart{ 
-	margin: auto;
-	padding-left: 25%;
 }
 
 #donut_chart{ 

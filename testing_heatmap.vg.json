@@ -1,9 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "clean_data/clean_testing_jun_sept.csv"},
-    "width": 400,
+    "width": 350,
     "height": 700,
-    "background":"beige",
     "title": "Total Number of Test per day from June 1 to September 30",
     "params": [
         {
@@ -14,7 +13,6 @@
                 "all",
                 "pcr",
                 "rtk.ag"
-             
             ],
             "labels": [
                 "All", 
@@ -63,6 +61,7 @@
     },
     "config": {
         "axis": {"grid": true, "tickBand": "extent"},
-        "legend": {"orient": "bottom"}
+        "legend": {"orient": "right"},
+        "background":"#cccccc"
       }
 }

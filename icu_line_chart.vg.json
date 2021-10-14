@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": "COVID-19 Patients in ICU from 1 June 2021 to 30 September 2021",
     "width": 700,
     "height": 400,
-    "data": {"url": "./clean_data/clean_icu.csv"},
+    "data": {"url": "./clean_data/healthcare.csv"},
     "params": [
     {
         "name": "State_selection",
@@ -67,20 +67,21 @@
        {"filter": "datum.state == State_selection"}
 
       ],
-    "mark": {"type":"line","point": true},
+    "mark": "line",
     "encoding": {
       "x": {"field": "date", "type": "temporal","title":"Date"},
-      "y": {"field": "beds_icu_covid", "type": "quantitative","title":"Total ICU Patients"},
+      "y": {"field": "icu_percent", "type": "quantitative","title":"Total ICU Patients"},
       "color": {"field": "state", "type": "nominal"},
       "tooltip": [
         {"field": "state", "type": "nominal", "title": "State"},
-        {"field": "beds_icu_covid", "type": "quantitative", "title": "ICU Bed Usage"}, 
-        {"field": "converted as string", "type": "nominal", "title":"Date"}]    
-    },
+        {"field": "icu_percent", "type": "quantitative", "title": "ICU Bed Usage"}, 
+        {"field": "converted as string", "type": "nominal", "title":"Date"}]
+      },
     "config": {
         "view": {"strokeOpacity": 0, "stroke": "black"},
         "legend": {"orient": "right"},
         "axis": {"grid": false},
-        "background":"beige"
+        "background":"beige",
+        "line": {"strokeWidth":3}
       }
   }

@@ -1,9 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "clean_data/clean_new_cases_jun_sept.csv"},
-    "width": 400,
+    "width": 350,
     "height": 700,
-    "background":"beige",
     "title": "Total Number of New Cases per day from June 1 to September 30",
     "transform": [
         {"calculate": "datetime(datum.date)", "as": "convertedDate"},
@@ -31,7 +30,7 @@
         "field": "cases_new",
         "aggregate": "max",
         "type": "quantitative",
-        "legend": {"title": "Number of New Cases"},
+        "legend": {"title": "Total"},
         "scale": {"range": ["#ffeda0", "#feb24c", "#f03b20"]}
       },
       "tooltip": [
@@ -41,6 +40,8 @@
     },
     "config": {
         "axis": {"grid": true, "tickBand": "extent"},
-        "legend": {"orient":"bottom"}
+        "legend": {"orient":"right"},
+        "background":"#cccccc"
+
       }
 }

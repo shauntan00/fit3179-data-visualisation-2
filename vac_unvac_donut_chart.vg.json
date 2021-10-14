@@ -3,14 +3,12 @@
     "width": 700,
     "height": 400,
     "description": "A simple donut chart with embedded data.",
-    "background":"beige",
     "title": "Vaccination as of 30 September 2021",
     "data": {
       "values": [
         {"category": "Fully Vaccinated", "percent": 62.02,"total":20255398},
         {"category": "Partially Vaccinated", "percent": 10.61,"total":3285579},
         {"category": "Unvaccinated", "percent": 27.37,"total":12116423}
-
       ]
     },
     "mark": {"type": "arc", "innerRadius": 100},
@@ -18,7 +16,7 @@
       "theta": {"field": "percent", "type": "quantitative"},
       "color": {"field": "category", 
                 "type": "nominal", 
-                "legend":{"title":"Status"},
+                "legend":{"title":"Status", "direction": "vertical"},
                 "scale":{"domain":["Fully Vaccinated", "Partially Vaccinated", "Unvaccinated"],
                 "range":["#31a354", "#74c476", "#bae4b3"]}
                 },
@@ -31,7 +29,7 @@
     },
     "config": {
         "view": {"strokeOpacity": 0, "stroke": "black"},
-        "background":"beige",
-        "legend": {"orient": "bottom-right"}
+        "background":"#cccccc",
+        "legend": {"orient": "top-right"}
       }   
   }

@@ -1,0 +1,129 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "clean_data/healthcare_1.csv"},
+    "params": [
+      {
+        "name": "State_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Penang",
+            "Perak",
+            "Perlis",
+            "Sabah",
+            "Sarawak",
+            "Selangor",
+            "Terengganu",
+            "W.P. Kuala Lumpur",
+            "W.P. Labuan",
+            "W.P. Putrajaya"
+          ],
+          "labels": [
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Penang",
+            "Perak",
+            "Perlis",
+            "Sabah",
+            "Sarawak",
+            "Selangor",
+            "Terengganu",
+            "Kuala Lumpur",
+            "Labuan",
+            "Putrajaya"
+          ],
+          "name": "Choose a State: "
+        },
+        "value": "Johor"
+      }
+    ],
+    "hconcat": [
+      {
+      "width": 600,
+      "height": 400,
+      "transform": [
+        {"calculate": "datetime(datum.date)", "as": "convertedDate"},
+        {
+          "calculate": "utcFormat(datum.date,'%B %d, %Y')",
+          "as": "converted as string"
+        },
+       {"filter": "datum.state == State_selection"}
+
+      ],
+      "mark": "line",
+      "title": "ICU Utilisation by State (June to September 2021)",
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": "Date"
+        },
+        "y": {
+          "field": "icu_percent",
+          "type": "quantitative",
+          "title": "ICU Percentage (%)"
+        },
+        "color": {"field": "state", "type": "nominal"},
+        "tooltip": [
+          {"field": "converted as string", "type": "nominal", "title":"Date"},
+          {"field": "icu_percent", "title": "ICU Utilisation %",  "format":"0.2f"}
+        ]
+      }
+    },
+    {
+      "hconcat": [
+        {
+          "width": 600,
+          "height": 400,
+          "mark": "line",
+          "title": "Ventilation Usage by State (June to September 2021)",
+          "transform": [
+            {"calculate": "datetime(datum.date)", "as": "convertedDate"},
+            {
+              "calculate": "utcFormat(datum.date,'%B %d, %Y')",
+              "as": "converted as string"
+            },
+           {"filter": "datum.state == State_selection"}
+    
+          ],
+          "encoding": {
+            "x":{
+              "field": "date",
+              "type": "temporal",
+              "title": "Date"
+            },
+            "y": {
+              "field": "vent_percent",
+              "type": "quantitative",
+              "title": "Ventilation Usage"
+            },
+            "color": {"field": "state", "type": "nominal"},
+            "tooltip": [
+              {"field": "converted as string", "type": "nominal", "title":"Date"},
+              {"field": "vent_percent", "title": "Ventilation Usage %", "format":"0.2f"}
+            ]
+          }
+        }
+      ]
+    }
+   ],
+   "config": {        
+      "axis": {"grid": false},
+      "line": {"strokeWidth":3},
+      "view": {"strokeOpacity": 0, "stroke": "black"},
+      "background":"#cccccc",
+      "legend": {"orient": "top","title": null}
+
+
+  }
+  }
