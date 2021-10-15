@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
+    "title": {
+        "text": "Hospital Beds Usage Percentage"
+    },
+    "width": 200,
+    "height": 200,
+    "data": {"url": "clean_data/beds_usage.csv"},
+    "mark": {"type": "square", "size": 325}, 
+    "transform":[
+        {"calculate": "datum.variable", "as": "Vent Percentage"}
+    ],
+
+    "encoding": {
+        "x": {
+            "field": "column",
+            "type": "quantitative", 
+            "axis": null
+        }, 
+        "y": {
+            "field": "row", 
+            "type": "quantitative",
+            "axis": null
+        }, 
+        "color": {
+            "field": "variable",
+            "type": "nominal",
+            "scale": {
+                "type": "ordinal",
+                "domain": ["bed_used", "non_bed"],
+                "range": ["#2c7fb8", "#f0f0f0"]
+            }, 
+            "legend": {
+                "title": "Type"
+            }
+        },
+        "tooltip":[{"field":"variable", "type": "nominal"}, 
+            {"field":"real_percent", "type": "quantitative"}]
+        
+    }, 
+    "config": {
+        "background":"#cccccc"
+      ,
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    }
+}

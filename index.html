@@ -20,18 +20,18 @@
 <body>
   <div class="page">
     <div class="pure-u-1">
-      <div id="text_div", style="text-align:center; font-size:40px">
+      <div id="text_div", style="text-align:center; font-size:40px;border-radius: 30;">
         <h1>Covid-19 in Malaysia</h1>
       </div>
     </div>
-    <div class="pure-g" id="cases">
 
+    <div class="pure-g" id="cases">
       <div class="pure-u-1">
-        <div id="choropleth_map", style="width:90%;padding-left:13%"></div>
+        <div id="choropleth_map"></div>
       </div>
 
       <div class="pure-u-1">
-        <div id="text_div", style="text-align: center; font-size:20px">
+        <div id="text_div">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
             Cum sociis natoque penatibus et magnis dis parturient montes, 
             nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
@@ -40,13 +40,13 @@
         </div>
       </div>
 
-      <div style="margin-top: 100px;">
+      <div>
       <div class="pure-u-1-3">
         <div id = "heat_map"></div>
       </div>
 
       <div class="pure-u-1-3">
-        <div id="text_div", style="text-align:center; font-size:20px; padding-top:50%;">
+        <div id="text_div">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
             Cum sociis natoque penatibus et magnis dis parturient montes, 
             nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
@@ -65,15 +65,15 @@
 
   </div>
 
-    <div class="pure-g" id="vaccination", style="margin-top: 80px;">
+    <div class="pure-g" id="vaccination">
         <div class="pure-u-1">
-          <div id="text_div", style="text-align:center; font-size: 30px;">
+          <div id="text_div"">
             <h1>Vaccination</h1>
           </div>
         </div>
 
         <div class="pure-u-1-2">
-          <div id="text_div", style="text-align:left; font-size: 20px;">
+          <div id="text_div"">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
               Cum sociis natoque penatibus et magnis dis parturient montes, 
               nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
@@ -87,11 +87,11 @@
         </div>
       
         <div class="pure-u-1-2">
-          <div id = "stacked_bar" style="margin-top: 150px;"></div>
+          <div id = "stacked_bar"></div>
         </div>
 
         <div class="pure-u-1-2">
-          <div id="text_div", style="text-align:right; font-size: 19px; padding-top:20%">
+          <div id="text_div">
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
               Cum sociis natoque penatibus et magnis dis parturient montes, 
               nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
@@ -105,18 +105,18 @@
 
     <div class="pure-g" id="healthcare", style="margin-top:80px" >
       <div class="pure-u-1">
-        <div id="text_div", style="text-align:center; font-size: 30px;">
+        <div id="text_div">
           <h1>Healthcare</h1>
         </div>
       </div>
 
 
       <div class="pure-u-1">
-        <div id="line_chart", style="padding-left:5%;"></div>
+        <div id="line_chart"></div>
       </div>
       
       <div class="pure-u-1">
-        <div id="text_div", style="text-align:center; font-size: 20px; margin-top:3%">
+        <div id="text_div">
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
             Cum sociis natoque penatibus et magnis dis parturient montes, 
             nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
@@ -124,6 +124,23 @@
             fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, </p>
         </div>
       </div>
+
+      <div class="pure-u-1-4">
+        <div id="waffle_chart_1"></div>
+      </div>
+
+      <div class="pure-u-1-4">
+        <div id="waffle_chart_2"></div>
+      </div>
+
+      <div class="pure-u-1-4">
+        <div id="waffle_chart_3"></div>
+      </div>
+
+      <div class="pure-u-1-4">
+        <div id="waffle_chart_4"></div>
+      </div>
+
     </div>
 </div>
 
@@ -156,6 +173,26 @@
 
     var viz7 = "health_care_line_chart.vg.json";
     vegaEmbed('#line_chart', viz7).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var viz8 = "waffle_chart_1.vg.json";
+    vegaEmbed('#waffle_chart_1', viz8).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var viz9 = "waffle_chart_2.vg.json";
+    vegaEmbed('#waffle_chart_2', viz9).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var viz10 = "waffle_chart_3.vg.json";
+    vegaEmbed('#waffle_chart_3', viz10).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var viz11 = "waffle_chart_4.vg.json";
+    vegaEmbed('#waffle_chart_4', viz11).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": "Total Confirmed COVID-19 Cases per 100000 population in Malaysia (30 Sept 2021)",
-  "width": "container",
+  "width": 700,
   "height": 600,
   "projection": {"type": "equirectangular"},
   "data": {
@@ -37,6 +37,7 @@
     "config": {
       "view": {"strokeOpacity": 0, "stroke": "black"},
       "background":"#cccccc",
-      "legend": {"orient": "bottom-right", "direction": "horizontal"}
+      "legend": {"orient": "bottom-right", "direction": "horizontal"},
+      "title": {"fontSize": 17}
     }   
 }

@@ -13,7 +13,7 @@
             "Melaka",
             "Negeri Sembilan",
             "Pahang",
-            "Penang",
+            "Pulau Pinang",
             "Perak",
             "Perlis",
             "Sabah",
@@ -65,8 +65,7 @@
       "encoding": {
         "x": {
           "field": "date",
-          "type": "temporal",
-          "title": "Date"
+          "type": "temporal"
         },
         "y": {
           "field": "icu_percent",
@@ -99,15 +98,14 @@
           "encoding": {
             "x":{
               "field": "date",
-              "type": "temporal",
-              "title": "Date"
+              "type": "temporal"
             },
             "y": {
               "field": "vent_percent",
               "type": "quantitative",
-              "title": "Ventilation Usage"
+              "title": "Ventilation Usage (%)"
             },
-            "color": {"field": "state", "type": "nominal"},
+            "color": {"field": "state", "type": "nominal", "legend":null},
             "tooltip": [
               {"field": "converted as string", "type": "nominal", "title":"Date"},
               {"field": "vent_percent", "title": "Ventilation Usage %", "format":"0.2f"}
@@ -122,7 +120,8 @@
       "line": {"strokeWidth":3},
       "view": {"strokeOpacity": 0, "stroke": "black"},
       "background":"#cccccc",
-      "legend": {"orient": "top","title": null}
+      "title": {"fontSize":20},
+      "axisX": {"labelAngle":-45,"title":null}
 
 
   }

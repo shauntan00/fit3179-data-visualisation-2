@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "clean_data/clean_new_cases_jun_sept.csv"},
-    "width": 350,
-    "height": 700,
-    "title": "Total Number of New Cases per day from June 1 to September 30",
+    "width": 300,
+    "height": 500,
+    "title": "Total Number of New Cases daily from June 1 to September 30",
     "transform": [
         {"calculate": "datetime(datum.date)", "as": "convertedDate"},
         {

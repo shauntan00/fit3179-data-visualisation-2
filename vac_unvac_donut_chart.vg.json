@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
-    "height": 400,
+    "width": 600,
+    "height": 300,
     "description": "A simple donut chart with embedded data.",
     "title": "Vaccination as of 30 September 2021",
     "data": {
@@ -11,7 +11,7 @@
         {"category": "Unvaccinated", "percent": 27.37,"total":12116423}
       ]
     },
-    "mark": {"type": "arc", "innerRadius": 100},
+    "mark": {"type": "arc", "innerRadius": 80},
     "encoding": {
       "theta": {"field": "percent", "type": "quantitative"},
       "color": {"field": "category", 
@@ -30,6 +30,7 @@
     "config": {
         "view": {"strokeOpacity": 0, "stroke": "black"},
         "background":"#cccccc",
-        "legend": {"orient": "top-right"}
+        "legend": {"orient": "top-right"},
+        "title": {"fontSize":20}
       }   
   }
