@@ -1,30 +1,52 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "clean_data/clean_vac_type_state.csv"},
-    "width": 650,
+    "width": 680,
     "height": 400,
-    "mark": "bar",
-    
-    "title": {
-        "text": "Vaccine Brands by State as of 30 September 2021",
-        "fontSize":20},
-
-    "encoding": {
-      "x": {"aggregate": "sum", "field": "Total"},
-      "y": {"field": "State", "sort":"-x"},
-      "color": {"field": "Types", "sort":"-x", 
-                "scale":{"domain":["Astra Zeneca", "Sinovac", "Pfizer", "CanSino"],
-                "range":["#91003f", "#fd8d3c", "#084594","#238b45" ]}},
-      "tooltip":[
-          {"field":"Types", "type": "nominal", "title": "Brand of Vaccine"},
-          {"field":"Total", "type": "quantitative"}
-        ]
+    "layer":[ 
+        {
+        "mark": "bar",
+        "title": {
+            "text": "Vaccine Brands by State as of 30 September 2021"},
+        "encoding": {
+          "x": {"aggregate": "sum", "field": "Total", "title":"Total Number of Vaccine"},
+          "y": {"field": "State", "sort":"-x"},
+          "color": {"field": "Types", "sort":"-x", 
+                    "scale":{"domain":["Astra Zeneca", "Sinovac", "Pfizer", "CanSino"],
+                    "range":["#91003f", "#fd8d3c", "#084594","#238b45" ]},
+                    "legend":{"title":"Brand"}
+                },
+          "tooltip":[
+              {"field":"Types", "type": "nominal", "title": "Brand of Vaccine"},
+              {"field":"Total", "type": "quantitative", "format":","}
+            ]
+        }
     },
-    "config": {
-        "axis": {"grid": false,"labelFontSize":15, "titleFontSize":12},
-        "legend": {"orient": "bottom"},
-        "view": {"strokeOpacity": 0, "stroke": "black"},
-        "background":"#cccccc"
- 
-      }
+        {
+        "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": -15,
+            "dy":110,
+            "fontSize": 16,
+            "fontStyle": "italic"     
+              },
+        "encoding": {
+            "text": {"value":["Selangor adminstered the most number of Sinovac.", 
+            "Johor adminstered the most number of Pfizer.", 
+            "Kuala Lumpur adminstered the most number of AZ.", 
+            "Sabah adminstered the most number of CanSino. "]}, 
+            "color": {"value": "#636363"},
+            "opacity": {"condition": {"test": "datum['State'] == 'Selangor'", "value": 1 }, "value": 0}
+            }
+        }],
+        "config": {
+            "axis": {"grid": false,"labelFontSize":15, "titleFontSize":15},
+            "legend": {"orient": "bottom", "labelFontSize":15, "titleFontSize":15},
+            "view": {"strokeOpacity": 0, "stroke": "black"},
+            "background":"#d5d6cb",
+            "title": {"fontSize":25, "offset":20},
+            "font": "sans-serif"
+          }
   }

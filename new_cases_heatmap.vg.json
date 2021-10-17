@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "clean_data/clean_new_cases_jun_sept.csv"},
-    "width": 300,
-    "height": 500,
-    "title": "Total Number of New Cases daily from June 1 to September 30",
+    "width": 350,
+    "height": 600,
+    "title": ["Total Number of New Cases Daily", "(June 2021 to September 2021)"],
     "transform": [
         {"calculate": "datetime(datum.date)", "as": "convertedDate"},
         {
@@ -17,7 +17,7 @@
         "field": "date",
         "timeUnit": "month",
         "type": "ordinal",
-        "title": "Month"
+        "title": null
       },
       "y": {
         "field": "date",
@@ -30,18 +30,20 @@
         "field": "cases_new",
         "aggregate": "max",
         "type": "quantitative",
-        "legend": {"title": "Total"},
+        "legend": {"title":null},
         "scale": {"range": ["#ffeda0", "#feb24c", "#f03b20"]}
       },
       "tooltip": [
         {"field": "converted as string", "type": "ordinal", "title":"Date"},
-        {"field": "cases_new", "title": "New Cases"}
+        {"field": "cases_new", "title": "New Cases", "format":","}
       ]
     },
     "config": {
-        "axis": {"grid": true, "tickBand": "extent"},
-        "legend": {"orient":"right"},
-        "background":"#cccccc"
-
-      }
+      "axis": {"grid": true, "tickBand": "extent",  "gridColor":"#969696", "titleFontSize":15,"labelFontSize":15},
+      "legend": {"orient": "right", "labelFontSize":12},
+      "background":"#d5d6cb",
+      "title":{"fontSize":24, "fontWeight":"bold", "offset":15},
+      "axisX": {"ticks": false},
+      "font": "sans-serif"
+    }
 }

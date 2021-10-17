@@ -1,12 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
     "title": {
-        "text": "Ventilation Usage Percentage"
+        "text": "Ventilation",
+        "align": "center"
     },
-    "width": 200,
-    "height": 200,
+    "width": 300,
+    "height": 300,
     "data": {"url": "clean_data/vent_usage.csv"},
-    "mark": {"type": "square", "size": 325}, 
+    "mark": {"type": "square", "size": 700}, 
     "transform":[
         {"calculate": "datum.variable", "as": "Vent Percentage"}
     ],
@@ -27,24 +28,28 @@
             "type": "nominal",
             "scale": {
                 "type": "ordinal",
-                "domain": ["vent_used", "non_vent"],
-                "range": ["#2c7fb8", "#f0f0f0"]
+                "domain": ["ultilised", "non-ultilised"],
+                "range": ["#d95f0e", "#969696"]
             }, 
-            "legend": {
-                "title": "Type"
-            }
+            "legend": null
+
         },
-        "tooltip":[{"field":"variable", "type": "nominal"}, 
-            {"field":"real_percent", "type": "quantitative"}]
+        "tooltip":[
+            {"field":"variable", "type": "nominal", "title": "Status"},
+            {"field":"real_percent", "type": "quantitative", "title":"%Percentage"} 
+        ]
         
     }, 
     "config": {
-        "background":"#cccccc"
+        "background":"#d5d6cb"
       ,
       "style": {
         "cell": {
           "stroke": "transparent"
         }
-      }
+      },
+      "font": "sans-serif",
+      "title": {"fontSize":25, "color":"#d95f0e", "offset":15}
+
     }
 }

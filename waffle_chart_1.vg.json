@@ -1,12 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
     "title": {
-        "text": "ICU Usage Percentage"
+        "text": "ICU",
+        "align": "center"
     },
-    "width": 200,
-    "height": 200,
+    "width": 300,
+    "height": 300,
     "data": {"url": "clean_data/icu_usage.csv"},
-    "mark": {"type": "square", "size": 325}, 
+    "mark": {"type": "square", "size": 700}, 
     "transform":[
         {"calculate": "datum.variable", "as": "ICU Percentage"}
     ],
@@ -27,24 +28,26 @@
             "type": "nominal",
             "scale": {
                 "type": "ordinal",
-                "domain": ["beds_icu", "non_icu"],
-                "range": ["#2c7fb8", "#f0f0f0"]
+                "domain": ["ultilised", "not-ultilised"],
+                "range": ["#045a8d", "#969696"]
             }, 
-            "legend": {
-                "title": "Type"
-            }
+            "legend": null
+
         },
-        "tooltip":[{"field":"variable", "type": "nominal"}, 
-            {"field":"real_percent", "type": "quantitative"}]
+        "tooltip":[{"field":"variable", "type": "nominal", "title": "Status"},
+            {"field":"real_percent", "type": "quantitative", "title":"%Percentage"}
+            ]
         
     }, 
     "config": {
-        "background":"#cccccc"
+        "background":"#d5d6cb"
       ,
       "style": {
         "cell": {
           "stroke": "transparent"
         }
-      }
+      },
+      "font": "sans-serif",
+      "title": {"fontSize":25, "color":"#045a8d", "offset":15}
     }
 }

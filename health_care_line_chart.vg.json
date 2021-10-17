@@ -48,81 +48,124 @@
       }
     ],
     "hconcat": [
+      {"width": 600,
+        "height": 400,
+        "transform": [
+          {"calculate": "datetime(datum.date)", "as": "convertedDate"},
+          {
+            "calculate": "utcFormat(datum.date,'%B %d, %Y')",
+            "as": "converted as string"
+          },
+         {"filter": "datum.state == State_selection"}
+  
+        ],
+        "layer": [{
+        "mark": "area",
+        "title": "ICU Utilisation by State (June 2021 to September 2021)",
+        "encoding": {
+          "x": {
+            "field": "date",
+            "type": "temporal",
+            "title": "Date"
+          },
+          "y": {
+            "field": "icu_percent",
+            "type": "quantitative",
+            "title": "Percentage (%)"
+          },
+          "tooltip": [
+            {"field": "converted as string", "type": "nominal", "title":"Date"},
+            {"field": "icu_percent", "title": "%ICU Utilisation",  "format":"0.2f"}
+          ]
+        }
+      },
       {
-      "width": 600,
-      "height": 400,
-      "transform": [
-        {"calculate": "datetime(datum.date)", "as": "convertedDate"},
-        {
-          "calculate": "utcFormat(datum.date,'%B %d, %Y')",
-          "as": "converted as string"
-        },
-       {"filter": "datum.state == State_selection"}
-
-      ],
-      "mark": "line",
-      "title": "ICU Utilisation by State (June to September 2021)",
-      "encoding": {
-        "x": {
-          "field": "date",
-          "type": "temporal"
-        },
-        "y": {
-          "field": "icu_percent",
-          "type": "quantitative",
-          "title": "ICU Percentage (%)"
-        },
-        "color": {"field": "state", "type": "nominal"},
-        "tooltip": [
-          {"field": "converted as string", "type": "nominal", "title":"Date"},
-          {"field": "icu_percent", "title": "ICU Utilisation %",  "format":"0.2f"}
-        ]
+        "mark": "line",
+        "title": "ICU Utilisation by State (June to September 2021)",
+        "encoding": {
+          "x": {
+            "field": "date",
+            "type": "temporal"
+          },
+          "y": {
+            "field": "icu_percent",
+            "type": "quantitative"
+          }
+       }
       }
+
+      ]
     },
     {
       "hconcat": [
         {
           "width": 600,
           "height": 400,
-          "mark": "line",
-          "title": "Ventilation Usage by State (June to September 2021)",
+          "title": "Ventilation Usage by State (June 2021 to September 2021)",
           "transform": [
             {"calculate": "datetime(datum.date)", "as": "convertedDate"},
             {
               "calculate": "utcFormat(datum.date,'%B %d, %Y')",
               "as": "converted as string"
             },
-           {"filter": "datum.state == State_selection"}
-    
+           {"filter": "datum.state == State_selection"}   
           ],
-          "encoding": {
+          "layer":[
+            {
+              "mark": "area", "encoding": {
             "x":{
               "field": "date",
-              "type": "temporal"
+              "type": "temporal",
+              "title": "Date"
             },
             "y": {
               "field": "vent_percent",
               "type": "quantitative",
-              "title": "Ventilation Usage (%)"
+              "title": "Percentage (%)"
             },
-            "color": {"field": "state", "type": "nominal", "legend":null},
             "tooltip": [
               {"field": "converted as string", "type": "nominal", "title":"Date"},
-              {"field": "vent_percent", "title": "Ventilation Usage %", "format":"0.2f"}
+              {"field": "vent_percent", "title": "%Ventilation Utilisation", "format":"0.2f"}
             ]
           }
+        }, 
+
+        {
+          "mark": "line", 
+          "encoding": {
+            "x":{
+              "field": "date",
+              "type": "temporal",
+              "title": "Date"
+            },
+            "y": {
+              "field": "vent_percent",
+              "type": "quantitative",
+              "title": "Percentage (%)"
+            },
+            "tooltip": [
+              {"field": "converted as string", "type": "nominal", "title":"Date"},
+              {"field": "vent_percent", "title": "%Ventilation Utilisation", "format":"0.2f"}
+            ]
+      }
+    }
+
+        ]
+          
         }
       ]
     }
    ],
    "config": {        
       "axis": {"grid": false},
-      "line": {"strokeWidth":3},
+      "line": {"strokeWidth":1, "color":"darkslategrey"},
       "view": {"strokeOpacity": 0, "stroke": "black"},
-      "background":"#cccccc",
-      "title": {"fontSize":20},
-      "axisX": {"labelAngle":-45,"title":null}
-
-
+      "background":"#d5d6cb",
+      "title":{"fontSize":23, "fontWeight":"bold", "offset":30},
+      "axisX": {"labelAngle":-45, "labelFontSize":12, "labelFontWeight":"bolder", "titleFontSize":15},
+      "axisY": {"labelFontSize":12, "labelFontWeight":"bolder", "titleFontSize":15},
+      "font": "sans-serif",
+      "area": {"opacity":0.5, "color":"grey"},
+      "concat": {"spacing": 100}
   }
-  }
+}

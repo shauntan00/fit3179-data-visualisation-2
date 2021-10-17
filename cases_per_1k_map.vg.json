@@ -1,7 +1,8 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": "Total Confirmed COVID-19 Cases per 100000 population in Malaysia (30 Sept 2021)",
-  "width": 700,
-  "height": 600,
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
+  "title": ["Total Confirmed COVID-19 Cases per 100k people", "as of 30 September 2021"],
+  "width": 890,
+  "height": 400,
   "projection": {"type": "equirectangular"},
   "data": {
       "url": "malaysia-state.topojson.json",
@@ -16,28 +17,28 @@
           "fields": ["total", "pop"]
         }
       },
-    {"calculate": "datum.total/datum.pop * 100000", "as": "Confirmed Cases per 100000 population"}
+    {"calculate": "datum.total/datum.pop * 100000", "as": "Confirmed Cases per 100k people"}
   ],
   "mark": {"type": "geoshape","stroke":"grey"},
   "encoding": {
     "color": {
-      "field": "Confirmed Cases per 100000 population",
+      "field": "Confirmed Cases per 100k people",
       "type": "quantitative",
       "scale": {
         "type": "threshold",
-        "domain":[1000, 3000, 5000, 7000, 9000],
+        "domain":[2000, 4000, 6000, 8000, 10000],
         "range": ["#ffffb2", "#fed976", "#fd8d3c", "#fc4e2a", "#b10026"]
         },
-        "legend":{"title":"Cases per 100000 population"} 
+        "legend":{"title":"Cases per 100k people"} 
       },
       "tooltip": [
         {"field": "properties.Name", "type": "nominal", "title": "State"},
-        {"field": "Confirmed Cases per 100000 population", "type": "quantitative", "format": ".2f"} ]
+        {"field": "Confirmed Cases per 100k people", "type": "quantitative", "format": ".2f"} ]
     },
     "config": {
       "view": {"strokeOpacity": 0, "stroke": "black"},
-      "background":"#cccccc",
-      "legend": {"orient": "bottom-right", "direction": "horizontal"},
-      "title": {"fontSize": 17}
+      "background":"#d5d6cb",
+      "legend": {"orient": "bottom-right", "direction": "horizontal", "titleFontSize":14, "labelFontSize":11},
+      "title": {"fontSize": 25, "offset":20}
     }   
 }

@@ -14,133 +14,234 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
 
+    
+
     <title>Covid 19 in Malaysia</title>
 </head>
 
 <body>
   <div class="page">
-    <div class="pure-u-1">
-      <div id="text_div", style="text-align:center; font-size:40px;border-radius: 30;">
-        <h1>Covid-19 in Malaysia</h1>
-      </div>
-    </div>
 
-    <div class="pure-g" id="cases">
-      <div class="pure-u-1">
-        <div id="choropleth_map"></div>
-      </div>
+    <div class="pure-g" id="title", style="border-radius: 1%">
+      <div class="pure-u-1", style="border-radius: 1%;">
+        <div id="header", style="text-align:center; font-size:40pt;">
+          <h1>Covid-19 in Malaysia</h1>
+        </div>
 
-      <div class="pure-u-1">
-        <div id="text_div">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-            Cum sociis natoque penatibus et magnis dis parturient montes, 
-            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
-            pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, 
-            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, </p>
+        <div id="text_div", style="border-radius: 1%; text-align:center; font-size:23pt;">
+          <p>As the Covid-19 cases in Malaysia have been steadily decreasing in the beggining of October, let's take a look at how the situation 
+            of Covid-19 in Malaysia have changed since the third lockdown that was imposed on 1 June 2021 by the Malaysian Government. </p>
         </div>
       </div>
-
-      <div>
-      <div class="pure-u-1-3">
-        <div id = "heat_map"></div>
       </div>
 
-      <div class="pure-u-1-3">
-        <div id="text_div">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-            Cum sociis natoque penatibus et magnis dis parturient montes, 
-            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
-            pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, 
-            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, 
-            imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. 
-            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. 
-          </p>
-        </div>
-      </div>
+      
+
     
-      <div class="pure-u-1-3">
-        <div id = "heat_map_testing"></div>
+
+    <div class="pure-g" id="cases_section", style="border-radius: 1%; background-color:#d5d6cb; margin-top:1%;padding-bottom:3%">
+      <div class="pure-u-1">
+        <div class="section_header", style="text-align:center; font-size:30px">
+          <h1>Cases</h1>
+        </div>
+      </div>
+
+      <div class="pure-g", id="map_row", style="border-radius: 1%; background-color:#d5d6cb; margin-top:2%;">
+        <div class="pure-u-3-5",style="padding-left:4%">
+          <div id="choropleth_map"></div>
+        </div>
+
+        <div class="pure-u-1-3", style="padding-top: 3%;padding-left:3%">
+          <div id="text_div">
+            <p><span style="font-size: 23pt; font-weight:bold;">Selangor, Kuala Lumpur, and Negeri Sembilan</span> has over <span style="color: #b10026; font-size:23pt; font-weight:bold;">8000</span> confirmed COVID-19 cases per 100k people in Malaysia which is the 
+             <br><span style="font-size: 23pt;font-weight:bold">Top 3</span> highest in Malaysia as of 30 September 2021.
+            </p>
+          </div>
+
+          <div id="text_div">
+            <p>On the other hand, <span style="font-size: 23pt; font-weight:bold;">Perlis</span> which located at the most <span style="font-style: italic; font-weight:bold;">northern</span> part of Malaysia and has a population of approximately 250 thousands contracted 
+              the <span style="color: #ffffb2; font-weight:bold; font-size:25pt;">lowest</span> number of COVID-19 cases per 100k people.  
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pure-g", id="heatmap_row", style="margin-top:5%;padding-left:3.5%">
+        <div class="pure-u-1", style="margin-bottom: 0.5%;">
+          <div id="sub_section">
+            <h2>How transimible Covid-19 is?</h2>
+          </div>
+        </div>
+
+        <div class="pure-u-1-3">
+          <div id = "heat_map"></div>
+        </div>
+
+        <div class="pure-u-1-3", style="padding-top: 3%;">
+          <div id="text_div">
+            <p>In order to see how transimible COVID-19 is in Malaysia, we can compare the number of <span style="color: #c51b8a;font-size:25pt;">cases</span> daily and the number of <span style="color: #f03b20;font-size:25pt;">test</span> taken daily. 
+            </p>
+          </div>
+
+          <div id="text_div">
+            <p>There are two types of <span style="color: #c51b8a;">test</span> in Malaysia which are <span style="font-weight: bold;color: #c51b8a;">Polymerase Chain Reaction Test (PCR)</span> 
+              and <span style="font-weight: bold;color: #c51b8a;">Antigen Rapid Test Kit (RTK)</span>. 
+            </p>
+          </div>
+
+          <div id="text_div">
+            <p>The average daily <span style="color: #f03b20;font-size:25pt;">cases</span> in August is the <span style="font-style: italic; font-weight:bold;">highest</span> which is approximately <span style="font-size: 23pt; font-weight:bold;">20</span> thousands daily. 
+              And an average of approximately <span style="font-size: 23pt; font-weight:bold;">150 </span>thousand of <span style="color: #c51b8a;font-size:25pt;">tests</span> 
+              have been conducted daily in <span style="font-size: 23pt; font-weight:bold;">August</span>.</p>
+          </div>
+
+          <div id="text_div">
+            <p>Approximately <span style="font-size: 23pt; font-weight:bold;">13.33%</span> of the test 
+              conducted daily would be positive Covid-19 case which could be considered as low.</p></p>
+          </div>
+          
+        </div>
+    
+        <div class="pure-u-1-3">
+          <div id = "heat_map_testing"></div>
+        </div>
       </div>
     </div>
 
-  </div>
 
-    <div class="pure-g" id="vaccination">
+
+    <div class="pure-g" id="vaccination_section", style="margin-top: 1%; border-radius: 1%;background-color:#d5d6cb; padding-bottom:3%">
         <div class="pure-u-1">
-          <div id="text_div"">
+          <div class="section_header", style="text-align:center; font-size:30px">
             <h1>Vaccination</h1>
           </div>
         </div>
 
-        <div class="pure-u-1-2">
-          <div id="text_div"">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-              Cum sociis natoque penatibus et magnis dis parturient montes, 
-              nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
-              pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, 
-              fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, </p>
+        <div class="pure-u-1">
+          <div id="sub_section">
+            <h2>How's the Vaccination Progress in Malaysia?</h2>
           </div>
         </div>
 
-        <div class="pure-u-1-2">
-          <div id = "donut_chart"></div>
+        <div class="pure-g", id="donut_row">
+          <div class="pure-u-1-2", style="padding-left: 3%;padding-top:2%">
+            <div id="text_div">
+              <p><span style="font-size:25pt;font-weight:bold">62.02%</span> of the population in Malaysia have been <span style="color: #006d2c; font-weight:bold; font-size:23pt">fully vacinated</span>, and <span style="font-size:25pt;font-weight:bold;">10.61% </span>of the population 
+                in Malaysia have been <span style="color: #74c476; font-weight:bold;font-size:23pt">partially vaccinated</span>. </p>
+            </div>
+
+            <div id="text_div">
+              <p>A total of <span style="font-size:25pt;font-weight:bold">72.63%</span> of Malaysian have at least 1 dose of vaccine as of 30 September 2021. However there are still approximately <span style="font-size:25pt;font-weight:bold">27%</span> of the population in Malaysia have not been vaccinated yet </p>
+            </div>
+            
+            <div id="text_div",>
+              <p>The Malaysian Government has ordered over 76 million doses of vaccines and aims to reach <span style="font-size: 25pt; font-weight:bold;">100%</span> fully vaccinated among the adult's population in Malaysia at the <span style="font-weight: bold;">end of October 2021</span>.</p>
+            </div>  
+          </div>
+
+          <div class="pure-u-1-3">
+            <div id = "donut_chart", style="padding-left: 8%; padding-top:4%"></div>
+          </div>
+      </div>
+
+      <div class="pure-u-1", style="margin-top: 5%;">
+        <div id="sub_section">
+          <h2>Vaccine Brands in Malaysia</h2>
         </div>
-      
+      </div>
+
+      <div class="pure-g", id="bar_row", style="margin-top: 1.5%;">
         <div class="pure-u-1-2">
-          <div id = "stacked_bar"></div>
+          <div id = "stacked_bar", style="padding-left:3%"></div>
         </div>
 
-        <div class="pure-u-1-2">
+        <div class="pure-u-1-3", style="padding-left:12%;padding-bottom:1%">
+          <div id="text_div",>
+            <p>The state of Selangor has administred the highest number of vaccines in Malaysia. A total of <span style="font-size: 25pt; font-weight:bold">4.3</span> million doses of vaccine have been administred to the people of Selangor.  </p>
+          </div>
+          
+          <div id="text_div",>
+            <p>Among the different vaccine brands, approximately <span style="font-size: 25pt; font-weight:bold">8.6</span> million doses of 
+              <span style="color:#fd8d3c; font-weight:bold; font-size:25pt;">Sinovac</span> have been adminstred to the people as of 30 September 2021.   
+            </p>
+          </div>
+
           <div id="text_div">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-              Cum sociis natoque penatibus et magnis dis parturient montes, 
-              nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
-              pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, 
-              fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, </p>
+            <p>According to the Malaysian Government, an individual would only be considered fully vacinated <span style="font-weight: bold; font-size:25pt;">14</span> days after receiving the second dose
+              of either <span style="color:#084594;">Pfizer</span>, <span style="color: #91003f">AstraZeneca</span> or <span style="color: #fd8d3c;">Sinovac</span> vaccines, 
+              and <span style="font-weight:bold;font-size:25pt;">28</span> days after being jabbed with the single dose of Johnson & Johnson or <span style="color:#238b45">CanSino</span> vaccines.
+            </p>
           </div>
+          
         </div>
+      </div>
       
     </div>
 
 
-    <div class="pure-g" id="healthcare", style="margin-top:80px" >
+    <div class="pure-g" id="healthcare_section", style="margin-top: 1%; border-radius: 1%;background-color:#d5d6cb;padding-bottom:2%" >
       <div class="pure-u-1">
-        <div id="text_div">
+        <div class="section_header" , style="text-align:center; font-size:30px">
           <h1>Healthcare</h1>
         </div>
       </div>
 
-
       <div class="pure-u-1">
-        <div id="line_chart"></div>
-      </div>
-      
-      <div class="pure-u-1">
-        <div id="text_div">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-            Cum sociis natoque penatibus et magnis dis parturient montes, 
-            nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
-            pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, 
-            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, </p>
+        <div id="sub_section">
+          <h2>The Ultilisation of Healthcare System in Malaysia</h2>
         </div>
       </div>
 
-      <div class="pure-u-1-4">
-        <div id="waffle_chart_1"></div>
+      <div pure = "pure-g", id="waffle_row", , style="margin-left: 5%;">
+        <div class="pure-u-1-4">
+          <div id="waffle_chart_1"></div>
+        </div>
+
+        <div class="pure-u-1-4">
+          <div id="waffle_chart_2"></div>
+        </div>
+
+        <div class="pure-u-1-4">
+          <div id="waffle_chart_3"></div>
+        </div>
+
+        <div class="pure-u-1-4">
+          <div id="waffle_chart_4"></div>
+        </div>
+    </div>
+
+
+      <div class="pure-u-1", style="text-align: center;">
+        <div id="text_div">
+          <p>The visualization above shows the ultilisation percentage of the healthcare system in Malaysia as of 30 September 2021. <br>As we can see that over <span style="font-size: 25pt; font-weight:bold;">70%</span> of the <span style="color:#045a8d; font-weight:bold; font-size:25pt;">ICU</span> 
+            in Malaysia have been ultilise by COVID-19 patients.<br>However, the usage of <span style="font-size: 25pt; color:#d95f0e; font-weight:bold;">ventilation</span> is relatively low where <span style="font-size: 25pt; font-weight:bold;">21.26%</span> have been used throughout Malaysia.
+          </p>
+        </div>
       </div>
 
-      <div class="pure-u-1-4">
-        <div id="waffle_chart_2"></div>
+      <div class="pure-u-1", style="margin-top: 1%;">
+        <div id="sub_section">
+          <h2>How does the Ultilisation of <span style="color:#045a8d">ICU</span> and <span style="color: #d95f0e;">Ventilation</span> <br>in each State changed overtime?</h2>
+        </div>
+        <div id="small_text", style="text-align:center; color:gray; font-size:12pt">
+          <p>* Select different state to see the changes overtime</p>
+        </div>
       </div>
 
-      <div class="pure-u-1-4">
-        <div id="waffle_chart_3"></div>
+      <div class="pure-u-1", style="margin-top: 2%; padding-left:5%" >
+        <div id="line_chart"></div>
       </div>
 
-      <div class="pure-u-1-4">
-        <div id="waffle_chart_4"></div>
+    </div>
+
+    <div class="pure-u-1", style="margin-top: 1%;">
+      <div id="small_text", style="text-align:center; color:gray; font-size:12pt">
+        <p>A visualisation done by Shaun Tan</p>
       </div>
 
+      <div id="small_text", style="text-align:center; color:gray; font-size:12pt">
+        <p>Data source from Ministry of Health Malaysia (MOH)</p>
+      </div>
     </div>
 </div>
 
