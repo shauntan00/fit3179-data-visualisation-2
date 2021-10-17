@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
+    "width":400,
     "height":400,
     "description": "A simple donut chart with embedded data.",
     "title": "Vaccination Progress as of 30 September 2021",
@@ -30,8 +30,8 @@
     "config": {
         "view": {"strokeOpacity": 0, "stroke": "black"},
         "background":"#d5d6cb",
-        "legend": {"orient": "top-right", "labelFontSize":15, "titleFontSize":15, "offset":-10},
-        "title": {"fontSize":23, "fontWeight":"bolder", "offset":30},
+        "legend": {"orient": "top-right", "labelFontSize":15, "titleFontSize":15, "offset":-50},
+        "title": {"fontSize":23, "fontWeight":"bolder", "offset":10},
         "font": "sans-serif"
       }   
   }

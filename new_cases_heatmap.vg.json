@@ -42,7 +42,7 @@
       "axis": {"grid": true, "tickBand": "extent",  "gridColor":"#969696", "titleFontSize":15,"labelFontSize":15},
       "legend": {"orient": "right", "labelFontSize":12},
       "background":"#d5d6cb",
-      "title":{"fontSize":24, "fontWeight":"bold", "offset":15},
+      "title":{"fontSize":22, "fontWeight":"bold", "offset":15},
       "axisX": {"ticks": false},
       "font": "sans-serif"
     }

@@ -166,6 +166,6 @@
       "axisY": {"labelFontSize":12, "labelFontWeight":"bolder", "titleFontSize":15},
       "font": "sans-serif",
       "area": {"opacity":0.5, "color":"grey"},
-      "concat": {"spacing": 100}
+      "concat": {"spacing": 50}
   }
 }
