@@ -48,7 +48,7 @@
       }
     ],
     "hconcat": [
-      {"width": 600,
+      {"width": 500,
         "height": 400,
         "transform": [
           {"calculate": "datetime(datum.date)", "as": "convertedDate"},
@@ -99,7 +99,7 @@
     {
       "hconcat": [
         {
-          "width": 600,
+          "width": 500,
           "height": 400,
           "title": "Ventilation Usage by State (June 2021 to September 2021)",
           "transform": [
